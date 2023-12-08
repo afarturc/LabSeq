@@ -1,6 +1,7 @@
 package dev.afartur.labseq.service;
 
 import dev.afartur.labseq.cache.LabSeqCache;
+import dev.afartur.labseq.dto.LabSeqCacheResponse;
 import dev.afartur.labseq.exception.InputException;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ public class LabSeqService {
 
     public BigInteger computeLabSeq(Integer n) {
         if (n < 0) {
-            throw new IllegalArgumentException("Input must be non-negative.");
+            throw new InputException("Input must be non-negative.");
         }
 
         BigInteger result = labSeqCache.get(n);
@@ -42,5 +43,9 @@ public class LabSeqService {
         labSeqCache.put(n, result);
 
         return result;
+    }
+
+    public LabSeqCacheResponse getCacheStatus() {
+        return new LabSeqCacheResponse(labSeqCache.getCacheSize(), labSeqCache.getCacheHits(), labSeqCache.getCacheMisses());
     }
 }

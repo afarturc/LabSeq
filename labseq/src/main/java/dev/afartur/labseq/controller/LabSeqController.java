@@ -1,6 +1,5 @@
 package dev.afartur.labseq.controller;
 
-import dev.afartur.labseq.cache.LabSeqCache;
 import dev.afartur.labseq.dto.LabSeqCacheResponse;
 import dev.afartur.labseq.dto.LabSeqResponse;
 import dev.afartur.labseq.service.LabSeqService;
@@ -17,11 +16,9 @@ import java.math.BigInteger;
 public class LabSeqController {
 
     private final LabSeqService labSeqService;
-    private final LabSeqCache labSeqCache;
 
-    public LabSeqController(LabSeqService labSeqService, LabSeqCache labSeqCache) {
+    public LabSeqController(LabSeqService labSeqService) {
         this.labSeqService = labSeqService;
-        this.labSeqCache = labSeqCache;
     }
 
     @GetMapping("/{n}")
@@ -38,10 +35,6 @@ public class LabSeqController {
 
     @GetMapping("/cache")
     ResponseEntity<LabSeqCacheResponse> getLabSeqCacheStatus() {
-        return ResponseEntity.ok().body(new LabSeqCacheResponse(
-                labSeqCache.getCacheSize(),
-                labSeqCache.getCacheHits(),
-                labSeqCache.getCacheMisses()
-        ));
+        return ResponseEntity.ok().body(labSeqService.getCacheStatus());
     }
 }
