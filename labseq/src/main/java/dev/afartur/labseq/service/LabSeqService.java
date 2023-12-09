@@ -15,6 +15,9 @@ public class LabSeqService {
         this.labSeqCache = labSeqCache;
     }
 
+    /**
+     *
+     * */
     public BigInteger computeLabSeq(Integer n) {
         if (n < 0) {
             throw new InputException("Input must be non-negative.");
@@ -45,6 +48,9 @@ public class LabSeqService {
         return result;
     }
 
+    /**
+     *
+     * */
     public LabSeqCacheResponse getCacheStatus() {
         return new LabSeqCacheResponse(labSeqCache.getCacheSize(), labSeqCache.getCacheHits(), labSeqCache.getCacheMisses());
     }
