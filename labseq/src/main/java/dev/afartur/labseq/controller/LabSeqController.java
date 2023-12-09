@@ -29,9 +29,6 @@ public class LabSeqController {
         this.labSeqService = labSeqService;
     }
 
-    /**
-     *
-     * */
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "LabSeq sequence value of N and the execution time in seconds",
                     content = @Content(mediaType = "application/json",
@@ -52,9 +49,6 @@ public class LabSeqController {
         return ResponseEntity.ok().body(new LabSeqResponse(value, executionTime));
     }
 
-    /**
-     *
-     * */
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Cache status information",
                     content = @Content(mediaType = "application/json",

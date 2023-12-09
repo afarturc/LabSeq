@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
 
+/**
+ * Service class for the labseq sequence calculation and cache information.
+ */
 @Service
 public class LabSeqService {
     private final LabSeqCache labSeqCache;
@@ -16,8 +19,10 @@ public class LabSeqService {
     }
 
     /**
-     *
-     * */
+     * Returns the labseq sequence value of the specified index n.
+     * @param n index of the sequence.
+     * @return labseq sequence value corresponding to the provided index.
+     */
     public BigInteger computeLabSeq(Integer n) {
         if (n < 0) {
             throw new InputException("Input must be non-negative.");
@@ -34,7 +39,7 @@ public class LabSeqService {
             return baseCase;
         }
 
-        if (n > 5000) {
+        if (n > 7000) {
             return computeLabSeq(n / 2);
         }
 
@@ -49,8 +54,9 @@ public class LabSeqService {
     }
 
     /**
-     *
-     * */
+     * Returns the cache status information for the labseq sequence.
+     * @return size, hits and misses
+     */
     public LabSeqCacheResponse getCacheStatus() {
         return new LabSeqCacheResponse(labSeqCache.getCacheSize(), labSeqCache.getCacheHits(), labSeqCache.getCacheMisses());
     }
