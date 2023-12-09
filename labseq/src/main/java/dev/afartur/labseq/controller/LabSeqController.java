@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigInteger;
 
+/**
+ * RestController class for labseq API.
+ * */
 @Tag(name = "LabSeq", description = "LabSeq sequence API")
 @RestController
 @RequestMapping("/labseq")
@@ -29,6 +32,11 @@ public class LabSeqController {
         this.labSeqService = labSeqService;
     }
 
+    /**
+     * Returns the response entity for a GET labseq sequence of index n request.
+     * @param n index of labseq sequence.
+     * @return labseq resposne entity.
+     */
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "LabSeq sequence value of N and the execution time in seconds",
                     content = @Content(mediaType = "application/json",
@@ -49,6 +57,10 @@ public class LabSeqController {
         return ResponseEntity.ok().body(new LabSeqResponse(value, executionTime));
     }
 
+    /**
+     * Returns the response entity for a GET cache status request.
+     * @return labseq cache response entity.
+     */
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Cache status information",
                     content = @Content(mediaType = "application/json",

@@ -5,8 +5,16 @@ import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Class for OpenAPi configuration.
+ */
 @Configuration
 public class OpenApiConfig {
+
+    /**
+     * Returns custom OpenAPI object for LabSeq API.
+     * @return OpenAPI custom object.
+     */
     public OpenAPI LabSeqOpenApi() {
         Contact contact = new Contact();
         contact.setEmail("arturcferra2002@gmail.com");

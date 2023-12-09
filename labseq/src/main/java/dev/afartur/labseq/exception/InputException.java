@@ -1,5 +1,9 @@
 package dev.afartur.labseq.exception;
 
+/**
+ * Class for invalid input exception.
+ * Extends RuntimeException.
+ */
 public class InputException extends RuntimeException {
     public InputException() {
     }
