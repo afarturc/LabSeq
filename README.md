@@ -4,15 +4,10 @@ This project aims to create a REST service with Spring Boot to implement labseq 
 
 ## Table of Contents
 
-- [LabSeq - Altice Labs Exercise 2023](#labseq---altice-labs-exercise-2023)
-  - [Table of Contents](#table-of-contents)
-  - [Labseq Sequence](#labseq-sequence)
-  - [Implementation](#implementation)
-  - [Results](#results)
-  - [How to run](#how-to-run)
-    - [Docker Container](#docker-container)
-    - [Locally](#locally)
-    - [Links](#links)
+- [Labseq Sequence](#labseq-sequence)
+- [Implementation](#implementation)
+- [Results](#results)
+- [How to run](#how-to-run)
 
 ## Labseq Sequence
 
