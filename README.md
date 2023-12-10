@@ -52,7 +52,10 @@ The memoization combined with a divide-and-conquer approach proved to be highly 
 
 ![Labseq for n = 100000](/Images/labseq100000.png)
 
-The code analysis also showcases good code coverage for the main service, with zero bugs and code smells detected, since everything was fixed during development.
+The code analysis also showcases good code coverage (even though full coverage is 55% the service implemented has a coverage of 93%), with zero bugs and code smells detected, since everything was fixed during development.
+
+![Sonar Cloud Global Analysis](Images/sonarcloud1.png)
+![Sonar Cloud Service Coverage](Images/sonarcloud2.png)
 
 ## How to run
 
