@@ -1,6 +1,7 @@
 package dev.afartur.labseq;
 
 import dev.afartur.labseq.cache.LabSeqCache;
+import dev.afartur.labseq.dto.LabSeqCacheResponse;
 import dev.afartur.labseq.exception.InputException;
 import dev.afartur.labseq.service.LabSeqService;
 import org.junit.jupiter.api.Test;
@@ -51,6 +52,19 @@ public class LabSeqServiceTest {
                 .isEqualTo(3);
 
         this.checkCacheHit(10);
+    }
+
+    @Test
+    public void checkCacheStatus(){
+        when(labSeqCache.getCacheSize()).thenReturn(9);
+        when(labSeqCache.getCacheHits()).thenReturn(1);
+        when(labSeqCache.getCacheMisses()).thenReturn(8);
+
+        LabSeqCacheResponse response = labSeqService.getCacheStatus();
+        assertThat(response).isInstanceOf(LabSeqCacheResponse.class);
+        assertThat(response.size()).isEqualTo(9);
+        assertThat(response.hits()).isEqualTo(1);
+        assertThat(response.misses()).isEqualTo(8);
     }
 
     private void checkCacheHit(Integer value) {
