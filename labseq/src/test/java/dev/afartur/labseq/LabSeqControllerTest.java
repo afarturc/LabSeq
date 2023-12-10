@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(LabSeqController.class)
 @AutoConfigureMockMvc
-public class LabSeqControllerTest {
+class LabSeqControllerTest {
     @Autowired
     MockMvc mockMvc;
 
@@ -30,7 +30,7 @@ public class LabSeqControllerTest {
     LabSeqService labSeqService;
 
     @Test
-    public void givenValidInteger_whenCalculatingLabSeq_thenReturnLabSeqResponse() throws Exception {
+    void givenValidInteger_whenCalculatingLabSeq_thenReturnLabSeqResponse() throws Exception {
         when(labSeqService.computeLabSeq(anyInt())).thenReturn(BigInteger.valueOf(12345));
 
         mockMvc.perform(get("/labseq/{n}", 10))
@@ -39,7 +39,7 @@ public class LabSeqControllerTest {
     }
 
     @Test
-    public void givenInvalidInteger_whenCalculatingLabSeq_thenReturnExceptionResponse() throws Exception {
+    void givenInvalidInteger_whenCalculatingLabSeq_thenReturnExceptionResponse() throws Exception {
         when(labSeqService.computeLabSeq(-10)).thenThrow(new InputException("Input must be non-negative."));
 
         mockMvc.perform(get("/labseq/{n}", -10))
@@ -47,7 +47,7 @@ public class LabSeqControllerTest {
     }
 
     @Test
-    public void getCacheStats() throws Exception {
+    void getCacheStats() throws Exception {
         LabSeqCacheResponse cacheResponse = new LabSeqCacheResponse(10, 2, 8);
 
         when(labSeqService.getCacheStatus()).thenReturn(cacheResponse);

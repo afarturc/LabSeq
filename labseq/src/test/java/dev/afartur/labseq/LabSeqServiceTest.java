@@ -19,21 +19,21 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class LabSeqServiceTest {
+class LabSeqServiceTest {
     @InjectMocks
     private LabSeqService labSeqService;
     @Mock
     private LabSeqCache labSeqCache;
 
     @Test
-    public void givenInvalidInteger_whenCalculatingLabSeq_thenThrowException() {
+    void givenInvalidInteger_whenCalculatingLabSeq_thenThrowException() {
         assertThatThrownBy(() -> {
             labSeqService.computeLabSeq(-10);
         }).isInstanceOf(InputException.class);
     }
 
     @Test
-    public void givenValidInteger_whenCalculatingLabSeq_withoutCache_theUpdateCache_andReturnValue() {
+    void givenValidInteger_whenCalculatingLabSeq_withoutCache_theUpdateCache_andReturnValue() {
         when(labSeqCache.get(10)).thenReturn(null);
 
         assertThat(labSeqService.computeLabSeq(10))
@@ -45,7 +45,7 @@ public class LabSeqServiceTest {
     }
 
     @Test
-    public void givenValidInteger_whenCalculatingLabSeq_withCache_thenCheckCache_andReturnValue() {
+    void givenValidInteger_whenCalculatingLabSeq_withCache_thenCheckCache_andReturnValue() {
         when(labSeqCache.get(10)).thenReturn(BigInteger.valueOf(3));
 
         assertThat(labSeqService.computeLabSeq(10))
@@ -55,7 +55,7 @@ public class LabSeqServiceTest {
     }
 
     @Test
-    public void checkCacheStatus(){
+    void checkCacheStatus(){
         when(labSeqCache.getCacheSize()).thenReturn(9);
         when(labSeqCache.getCacheHits()).thenReturn(1);
         when(labSeqCache.getCacheMisses()).thenReturn(8);

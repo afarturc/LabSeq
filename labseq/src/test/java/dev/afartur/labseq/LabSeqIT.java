@@ -18,7 +18,7 @@ import java.util.Objects;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class LabSeqIT {
+class LabSeqIT {
     private final static String BASE_URI = "http://localhost:";
 
     @LocalServerPort
@@ -28,14 +28,14 @@ public class LabSeqIT {
     private TestRestTemplate testRestTemplate;
 
     @Test
-    public void givenInvalidInteger_whenCalculatingLabSeq_thenReturnExceptionResponse() throws Exception {
+    void givenInvalidInteger_whenCalculatingLabSeq_thenReturnExceptionResponse() throws Exception {
         ResponseEntity<ExceptionResponse> response = testRestTemplate.exchange(BASE_URI + randomServerPort + "/labseq/-1", HttpMethod.GET, null, ExceptionResponse.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
         assertThat(Objects.requireNonNull(response.getBody()).message()).isEqualTo("Input must be non-negative.");
     }
 
     @Test
-    public void givenValidInteger_whenCalculatingLabSeq_thenReturnLabSeqResponse_andCheckCacheStatus() throws Exception {
+    void givenValidInteger_whenCalculatingLabSeq_thenReturnLabSeqResponse_andCheckCacheStatus() throws Exception {
         ResponseEntity<LabSeqResponse> labSeqResponse = testRestTemplate.exchange(BASE_URI + randomServerPort + "/labseq/10", HttpMethod.GET, null, LabSeqResponse.class);
         assertThat(labSeqResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(Objects.requireNonNull(labSeqResponse.getBody()).value()).isEqualTo(3);
