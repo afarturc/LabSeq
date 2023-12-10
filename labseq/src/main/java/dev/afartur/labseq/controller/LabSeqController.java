@@ -41,7 +41,7 @@ public class LabSeqController {
             @ApiResponse(responseCode = "200", description = "LabSeq sequence value of N and the execution time in seconds",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = LabSeqResponse.class),
-                            examples = @ExampleObject(value = "{'value': 3, 'executionTime': 0.0}"))),
+                            examples = @ExampleObject(value = "{'value': 123456789, 'executionTime': 0.0}"))),
             @ApiResponse(responseCode = "400", description = "Invalid N (N >= 0)", content = @Content)
     })
     @Operation(summary = "Get the LabSeq sequence value of N")

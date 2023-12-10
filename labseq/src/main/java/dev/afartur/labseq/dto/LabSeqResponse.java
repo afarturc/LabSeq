@@ -1,5 +1,7 @@
 package dev.afartur.labseq.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import java.math.BigInteger;
 
 /**
@@ -8,6 +10,7 @@ import java.math.BigInteger;
  * @param executionTime time spent calculating the labseq sequence value.
  */
 public record LabSeqResponse(
+        @JsonSerialize(using = BigIntegerSerializer.class)
         BigInteger value,
         double executionTime
 ) {}
