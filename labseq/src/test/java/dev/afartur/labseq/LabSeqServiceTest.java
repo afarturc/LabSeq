@@ -3,14 +3,12 @@ package dev.afartur.labseq;
 import dev.afartur.labseq.cache.LabSeqCache;
 import dev.afartur.labseq.exception.InputException;
 import dev.afartur.labseq.service.LabSeqService;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigInteger;
 
@@ -19,7 +17,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
-@RunWith(SpringRunner.class)
 @ExtendWith(MockitoExtension.class)
 public class LabSeqServiceTest {
     @InjectMocks

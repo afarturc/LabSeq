@@ -4,8 +4,7 @@ import dev.afartur.labseq.controller.LabSeqController;
 import dev.afartur.labseq.dto.LabSeqCacheResponse;
 import dev.afartur.labseq.exception.InputException;
 import dev.afartur.labseq.service.LabSeqService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -21,7 +20,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(SpringRunner.class)
 @WebMvcTest(LabSeqController.class)
 @AutoConfigureMockMvc
 public class LabSeqControllerTest {
