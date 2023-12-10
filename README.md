@@ -4,10 +4,15 @@ This project aims to create a REST service with Spring Boot to implement labseq 
 
 ## Table of Contents
 
+- [LabSeq - Altice Labs Exercise 2023](#labseq---altice-labs-exercise-2023)
+  - [Table of Contents](#table-of-contents)
   - [Labseq Sequence](#labseq-sequence)
   - [Implementation](#implementation)
   - [Results](#results)
   - [How to run](#how-to-run)
+    - [Docker Container](#docker-container)
+    - [Locally](#locally)
+    - [Links](#links)
 
 ## Labseq Sequence
 
@@ -37,7 +42,7 @@ The Labseq sequence is similar to the Fibonacci sequence, so the first step was 
 
 ## Implementation
 
-The Rest service was implemented using Spring framework, specifically Spring Boot, due to prior knowledge of the technology. The development process followed a TDD approach where tests were implemented first and the service was built based on them. The pipeline began with basic unit tests for the controller and service, followed by integration tests for the complete API. The API contained only two endpoints - one for calculating the labseq sequence and the other for retrieving useful cache status. The cache was a simple object class with a HashMap and stat information, as it only required the index n key and the value. To enhance the project, a key-value database with high performance like Redis could have been used. Open API format was used for documentation as required, with the help of Springdoc swagger 3 maven dependency. Lastly, a simple Docker container was created using a Dockerfile since no further services were involved.
+The Rest service was implemented using Spring framework, specifically Spring Boot, due to prior knowledge of the technology. The development process followed a TDD approach where tests were implemented first and the service was built based on them. Furthermore, there was implemented a CI pipeline for static code analysis using SonarCloud, this helped identify code smells, bugs and duplicated code and fix them. The process began with basic unit tests for the controller and service, followed by integration tests for the complete API. The API contained only two endpoints - one for calculating the labseq sequence and the other for retrieving useful cache status. The cache was a simple object class with a HashMap and stat information, as it only required the index n key and the value. To enhance the project, a key-value database with high performance like Redis could have been used. Open API format was used for documentation as required, with the help of Springdoc swagger 3 maven dependency. Finally, a simple Dockerfile was created to containerize the application for easy distribution.
 
 ![API](Images/api.png)
 
@@ -46,6 +51,8 @@ The Rest service was implemented using Spring framework, specifically Spring Boo
 The memoization combined with a divide-and-conquer approach proved to be highly efficient. For instance, when dealing with values such as n = 10000, the calculation time was less than one second.
 
 ![Labseq for n = 100000](/Images/labseq100000.png)
+
+The code analysis also showcases good code coverage for the main service, with zero bugs and code smells detected, since everything was fixed during development.
 
 ## How to run
 

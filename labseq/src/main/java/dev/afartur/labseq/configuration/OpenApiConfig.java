@@ -15,7 +15,7 @@ public class OpenApiConfig {
      * Returns custom OpenAPI object for LabSeq API.
      * @return OpenAPI custom object.
      */
-    public OpenAPI LabSeqOpenApi() {
+    public OpenAPI labSeqOpenApi() {
         Contact contact = new Contact();
         contact.setEmail("arturcferra2002@gmail.com");
         contact.setName("Artur Correia");
